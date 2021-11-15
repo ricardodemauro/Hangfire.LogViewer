@@ -1,9 +1,6 @@
 name: Tests
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+
+on: workflow_dispatch
 
 jobs:
   build-and-test:
@@ -20,3 +17,9 @@ jobs:
       
     - name: Test
       run: dotnet test --no-build --verbosity normal
+      
+    - name: GitHub Tag
+      uses: mathieudutour/github-tag-action@v5.6
+      id: tag_version
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}

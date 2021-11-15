@@ -1,8 +1,6 @@
 name: Publish Nuget package
 
-on:
-  release:
-    types: [published]
+on: workflow_dispatch
     
 jobs:
   build-test-pack:
@@ -14,17 +12,14 @@ jobs:
       uses: actions/checkout@v2
         
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore ./Hangfire.SignalRViewer/Hangfire.SignalRViewer.csproj
       
     - name: Build
-      run: dotnet build --no-restore --configuration Release
-      
-    - name: Test
-      run: dotnet test --no-build --verbosity normal --configuration Release
+      run: dotnet build ./Hangfire.SignalRViewer/Hangfire.SignalRViewer.csproj --no-restore --configuration Release
       
     - name: Pack
-      run: dotnet pack ./Hangfire.LogViewer/Hangfire.LogViewer.csproj --output nupkgs --no-build --configuration Release -p:PackageVersion=${{ github.event.release.tag_name }}
+      run: dotnet pack ./Hangfire.LogViewer/Hangfire.SignalRViewer/Hangfire.SignalRViewer.csproj --output nupkgs --no-build --configuration Release -p:PackageVersion=${{ github.event.release.tag_name }}
       
     - name: Push
-      run: dotnet nuget push ./nupkgs/Hangfire.LogViewer.${{ github.event.release.tag_name }}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
+      run: dotnet nuget push ./nupkgs/Hangfire.SignalRViewer.${{ github.event.release.tag_name }}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
       
