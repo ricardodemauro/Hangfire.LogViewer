@@ -4,6 +4,17 @@
 		<TargetFramework>netstandard2.0</TargetFramework>
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<IsPackable>true</IsPackable>
+		<Description>A plugin for Hangfire for realtime log viewer.</Description>
+		<PackageTags>hangfire</PackageTags>
+		<Authors>Ricardo Mauro (@rmaurodev)</Authors>
+		<PackageProjectUrl>https://github.com/ricardodemauro/Hangfire.LogViewer</PackageProjectUrl>
+		<PackageLicenseUrl>https://github.com/ricardodemauro/Hangfire.LogViewer/blob/master/LICENSE</PackageLicenseUrl>
+		<Copyright>Ricardo Mauro (@rmaurodev)</Copyright>
+		<RepositoryUrl>https://github.com/ricardodemauro/Hangfire.LogViewer</RepositoryUrl>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<None Remove="Pages\LogViewer.cshtml" />
 	</ItemGroup>
@@ -21,6 +32,8 @@
 
 	<PropertyGroup>
 		<RazorViewsCodeGenDirectory>$(MsBuildProjectDirectory)\</RazorViewsCodeGenDirectory>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
 	</PropertyGroup>
 
 
