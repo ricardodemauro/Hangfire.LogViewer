@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Version>0.1.0</Version>
+		<Authors>Ricardo Mauro</Authors>
+		<Company>rmauro.dev</Company>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>serilog;signalr;.NET5;aspnetcore;signalrcore</PackageTags>
+		<RepositoryUrl>https://github.com/ricardodemauro/Serilog.Sinks.AspNetCore.SignalR.Core</RepositoryUrl>
+		<PackageProjectUrl>http://serilog.net</PackageProjectUrl>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="5.0.12" />
+		<PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.1.0" />
+		<PackageReference Include="Serilog" Version="2.10.0" />
+		<PackageReference Include="Serilog.Sinks.PeriodicBatching" Version="2.3.0" />
+	</ItemGroup>
+
+</Project>
