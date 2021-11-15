@@ -12,7 +12,7 @@ jobs:
       uses: actions/checkout@v2
         
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore ./Hangfire.SignalRViewer/Hangfire.SignalRViewer.csproj
       
     - name: Build
       run: dotnet build ./Hangfire.SignalRViewer/Hangfire.SignalRViewer.csproj --no-restore --configuration Release
