@@ -364,4 +364,5 @@ FodyWeavers.xsd
 
 .keys
 
-nupkgs
+nupkgs/*
+!nupkgs/.gitkeep

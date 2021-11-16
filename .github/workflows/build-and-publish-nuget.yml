@@ -14,10 +14,13 @@ jobs:
       uses: actions/checkout@v2
         
     - name: Restore dependencies
-      run: dotnet restore ./Hangfire.SignalRViewer/Hangfire.SignalRViewer.csproj
+      run: dotnet restore ./src/Hangfire.SignalRViewer/Hangfire.SignalRViewer.csproj
+      
+    - name: build
+      run: dotnet build ./src/Hangfire.SignalRViewer/Hangfire.SignalRViewer.csproj --no-restore
       
     - name: Pack
-      run: dotnet pack ./Hangfire.LogViewer/Hangfire.SignalRViewer/Hangfire.SignalRViewer.csproj --output nupkgs -p:PackageVersion=${{ github.event.release.tag_name }}
+      run: dotnet pack ./src/Hangfire.SignalRViewer/Hangfire.SignalRViewer.csproj --output nupkgs -p:PackageVersion=${{ github.event.release.tag_name }}
       
     - name: Push
       run: dotnet nuget push ./nupkgs/Hangfire.SignalRViewer.${{ github.event.release.tag_name }}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
