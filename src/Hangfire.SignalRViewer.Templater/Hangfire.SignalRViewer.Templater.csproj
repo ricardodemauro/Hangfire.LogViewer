@@ -1,7 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>netstandard2.0</TargetFramework>
+		<!--<TargetFramework>net5.0</TargetFramework>-->
+		<TargetFramework>net48</TargetFramework>
+		<Platforms>AnyCPU;x64;x86</Platforms>
+		
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -16,29 +19,23 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Remove="Pages\LogViewer.cshtml" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<Content Include="Pages\LogViewer.cshtml">
-			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-		</Content>
-	</ItemGroup>
-
-	<ItemGroup>
-		<Folder Include="wwwroot\" />
+		<None Remove="wwwroot\**" />
 	</ItemGroup>
 
 	<PropertyGroup>
 		<RazorViewsCodeGenDirectory>$(MsBuildProjectDirectory)\</RazorViewsCodeGenDirectory>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
 	</PropertyGroup>
 
 
 	<ItemGroup>
 		<RazorSrcFiles Remove="Pages\LogViewer.cshtml" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <EmbeddedResource Include="wwwroot\**" />
 	</ItemGroup>
 
 	<ItemGroup>

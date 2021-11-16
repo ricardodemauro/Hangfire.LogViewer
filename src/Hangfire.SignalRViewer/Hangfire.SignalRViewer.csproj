@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<IsPackable>true</IsPackable>
+		<Description>A plugin for Hangfire for realtime log viewer.</Description>
+		<PackageTags>hangfire</PackageTags>
+		<Authors>Ricardo Mauro (@rmaurodev)</Authors>
+		<PackageProjectUrl>https://github.com/ricardodemauro/Hangfire.LogViewer</PackageProjectUrl>
+		<PackageLicenseUrl>https://github.com/ricardodemauro/Hangfire.LogViewer/blob/master/LICENSE</PackageLicenseUrl>
+		<Copyright>Ricardo Mauro (@rmaurodev)</Copyright>
+		<RepositoryUrl>https://github.com/ricardodemauro/Hangfire.LogViewer</RepositoryUrl>
+	</PropertyGroup>
+
+	
+
+	<ItemGroup>
+	  <Compile Include="..\Hangfire.SignalRViewer.Templater\Pages\LogViewer.cshtml.cs" Link="Templater\Pages\LogViewer.cshtml.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Hangfire.Core" Version="1.7.27" />
+		
+	</ItemGroup>
+
+</Project>

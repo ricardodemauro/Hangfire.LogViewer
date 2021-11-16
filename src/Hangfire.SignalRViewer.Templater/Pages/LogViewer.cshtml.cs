@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Hangfire.SignalRViewer.Pages
+namespace Hangfire.SignalRViewer.Templater.Pages
 {
     using System;
     using System.Collections.Generic;

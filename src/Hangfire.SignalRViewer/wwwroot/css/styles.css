@@ -1,0 +1,6 @@
+﻿ul#messagesList {
+    list-style: none;
+
+    max-height: 80vh;
+    overflow-y: auto;
+}

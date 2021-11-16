@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hangfire.SignalRViewer.Pages
+namespace Hangfire.SignalRViewer.Templater.Pages
 {
     partial class LogViewer
     {
