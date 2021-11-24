@@ -1,20 +1,18 @@
 ﻿using Microsoft.Extensions.Logging;
+using Serilog;
 using System;
 
 namespace Hangfire.LogViewer.Services
 {
     public class NotificationService
     {
-        private readonly ILogger<NotificationService> _logger;
-
-        public NotificationService(ILogger<NotificationService> logger)
+        public NotificationService()
         {
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public void Run()
         {
-            _logger.LogInformation("Running at {time}", DateTime.Now);
+            Log.Information("Running at {time}", DateTime.Now);
         }
     }
 }

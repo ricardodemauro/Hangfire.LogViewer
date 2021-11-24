@@ -1,5 +1,7 @@
+using Hangfire.Common;
 using Hangfire.Console.Extensions.Serilog;
 using Hangfire.LogViewer.Hubs;
+using Hangfire.LogViewer.Services;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SignalR;
@@ -26,17 +28,27 @@ namespace Hangfire.LogViewer
                 .WriteTo.Console()
                 .WriteTo.Hangfire()
                 .WriteTo.SignalR<LogHub, ISerilogHub>(hubContext)
+
                 .MinimumLevel.Override("Hangfire", Serilog.Events.LogEventLevel.Information)
                 .CreateBootstrapLogger();
 
-            host.Run();
+            var manager = host.Services.GetRequiredService<IRecurringJobManager>();
+            manager.AddOrUpdate("some-id", Job.FromExpression(() => System.Console.Write("Easy!")), Cron.Minutely());
 
+            var notService = host.Services.GetRequiredService<NotificationService>();
+            manager.AddOrUpdate("NotificationService", Job.FromExpression(() => Notify(notService)), Cron.Minutely());
+            host.Run();
+        }
+
+        public static void Notify(NotificationService service)
+        {
+            service.Run();
         }
 
         static IWebHost CreateHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
             .UseStartup<Startup>()
-            .UseSerilog()
+            //.UseSerilog()
             .Build();
     }
 }

@@ -27,6 +27,12 @@ namespace Hangfire.SignalRViewer.Templater.Pages
     #line default
     #line hidden
     
+    #line 5 "..\..\Pages\LogViewer.cshtml"
+    using Hangfire.SignalRViewer.DependencyInjection;
+    
+    #line default
+    #line hidden
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     internal partial class LogViewer : Hangfire.Dashboard.RazorPage
     {
@@ -42,8 +48,9 @@ WriteLiteral("\r\n\r\n");
 
 
 
+
             
-            #line 6 "..\..\Pages\LogViewer.cshtml"
+            #line 7 "..\..\Pages\LogViewer.cshtml"
   
     Layout = new LayoutPage("Hello World");
 
@@ -51,17 +58,57 @@ WriteLiteral("\r\n\r\n");
             
             #line default
             #line hidden
-WriteLiteral(@"
-<link rel=""stylesheet"" type=""text/css"" href=""/css/styles.css""/>
+WriteLiteral("\r\n<template id=\"configuration\">\r\n    {\r\n    \"DateFormat\": \"");
+
+
+            
+            #line 13 "..\..\Pages\LogViewer.cshtml"
+              Write(GlobalConfigurationExtensions.Options.DateFormat);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\",\r\n    \"LevelFormat\": \"");
+
+
+            
+            #line 14 "..\..\Pages\LogViewer.cshtml"
+               Write(GlobalConfigurationExtensions.Options.LevelFormat);
+
+            
+            #line default
+            #line hidden
+WriteLiteral(@"""
+    }
+</template>
+
+<link rel=""stylesheet"" type=""text/css"" href=""/css/styles.css"" />
+
+<div class=""row"" id=""vue-app"">
+    <div class=""col-md-3 col-12"">
+        <div class=""list-group"">
+            <vu-log-category v-for=""item in orderedCategories""
+                             v-bind:item=""item""
+                             v-bind:key=""item.id""></vu-log-category>
+        </div>
+    </div>
+    <div class=""col-md-9 col-12"">
+        <div class=""demo"">
+            <ul>
+                <vu-log-item v-for=""item in logsList""
+                             v-bind:item=""item""
+                             v-bind:key=""item.id""></vu-log-item>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src=""https://unpkg.com/vue@next""></script>
+<script src=""https://unpkg.com/vuex@4.0.2/dist/vuex.global.js""></script>
 
 <script type=""application/javascript"" src=""/libs/signalr.js""></script>
 <script type=""application/javascript"" src=""/js/index.js""></script>
-
-<div class=""row"">
-    <div class=""col-12"">
-        <ul id=""messagesList""></ul>
-    </div>
-</div>");
+");
 
 
         }

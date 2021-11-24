@@ -48,4 +48,8 @@
 		</PackageReference>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\Hangfire.SignalRViewer\Hangfire.SignalRViewer.csproj" />
+	</ItemGroup>
+
 </Project>

@@ -2,18 +2,42 @@
 
 @using System.Linq
 @using Hangfire.Dashboard.Pages
+@using Hangfire.SignalRViewer.DependencyInjection
 @inherits Hangfire.Dashboard.RazorPage
 @{
     Layout = new LayoutPage("Hello World");
 }
 
-<link rel="stylesheet" type="text/css" href="/css/styles.css"/>
+<template id="configuration">
+    {
+    "DateFormat": "@GlobalConfigurationExtensions.Options.DateFormat",
+    "LevelFormat": "@GlobalConfigurationExtensions.Options.LevelFormat"
+    }
+</template>
+
+<link rel="stylesheet" type="text/css" href="/css/styles.css" />
+
+<div class="row" id="vue-app">
+    <div class="col-md-3 col-12">
+        <div class="list-group">
+            <vu-log-category v-for="item in orderedCategories"
+                             v-bind:item="item"
+                             v-bind:key="item.id"></vu-log-category>
+        </div>
+    </div>
+    <div class="col-md-9 col-12">
+        <div class="demo">
+            <ul>
+                <vu-log-item v-for="item in logsList"
+                             v-bind:item="item"
+                             v-bind:key="item.id"></vu-log-item>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/vue@next"></script>
+<script src="https://unpkg.com/vuex@4.0.2/dist/vuex.global.js"></script>
 
 <script type="application/javascript" src="/libs/signalr.js"></script>
 <script type="application/javascript" src="/js/index.js"></script>
-
-<div class="row">
-    <div class="col-12">
-        <ul id="messagesList"></ul>
-    </div>
-</div>
