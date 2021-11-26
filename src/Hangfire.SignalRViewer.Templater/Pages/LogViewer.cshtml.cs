@@ -78,37 +78,26 @@ WriteLiteral("\",\r\n    \"LevelFormat\": \"");
             
             #line default
             #line hidden
-WriteLiteral(@"""
-    }
-</template>
-
-<link rel=""stylesheet"" type=""text/css"" href=""/css/styles.css"" />
-
-<div class=""row"" id=""vue-app"">
-    <div class=""col-md-3 col-12"">
-        <div class=""list-group"">
-            <vu-log-category v-for=""item in orderedCategories""
-                             v-bind:item=""item""
-                             v-bind:key=""item.id""></vu-log-category>
-        </div>
-    </div>
-    <div class=""col-md-9 col-12"">
-        <div class=""demo"">
-            <ul>
-                <vu-log-item v-for=""item in logsList""
-                             v-bind:item=""item""
-                             v-bind:key=""item.id""></vu-log-item>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<script src=""https://unpkg.com/vue@next""></script>
-<script src=""https://unpkg.com/vuex@4.0.2/dist/vuex.global.js""></script>
-
-<script type=""application/javascript"" src=""/libs/signalr.js""></script>
-<script type=""application/javascript"" src=""/js/index.js""></script>
-");
+WriteLiteral("\"\r\n    }\r\n</template>\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/css/styles" +
+".css\" />\r\n\r\n<div class=\"row\" id=\"vue-app\">\r\n    <div class=\"col-md-3 col-12\">\r\n " +
+"       <div class=\"list-group\">\r\n            <vu-log-category v-for=\"item in ord" +
+"eredCategories\"\r\n                             v-bind:item=\"item\"\r\n              " +
+"               v-bind:key=\"item.id\"></vu-log-category>\r\n        </div>\r\n    </di" +
+"v>\r\n    <div class=\"col-md-9 col-12\">\r\n        <div class=\"table-responsive\">\r\n " +
+"           <table class=\"table table-responsive\">\r\n                <thead>\r\n    " +
+"                <tr>\r\n                        <th>Id</th>\r\n                     " +
+"   <th>Level</th>\r\n                        <th>Message</th>\r\n                   " +
+"     <th>Time Ago</th>\r\n                        <th>Time</th>\r\n                 " +
+"   </tr>\r\n                </thead>\r\n                <tbody>\r\n                   " +
+" <tr v-for=\"item in orderedLogs\" :class=\"classObject\">\r\n                        " +
+"<td>{{ item.properties.Id }}</td>\r\n                        <td>{{ item.levelForm" +
+"at }}</td>\r\n                        <td>{{ item.renderedMessage }}</td>\r\n       " +
+"                 <td>{{ item.timeDifferenceFormat }}</td>\r\n                     " +
+"   <td>{{ item.createdFormat }}</td>\r\n                    </tr>\r\n               " +
+" </tbody>\r\n            </table>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<script s" +
+"rc=\"/libs/vue.js\"></script>\r\n<script src=\"/libs/vuex.js\"></script>\r\n\r\n<script ty" +
+"pe=\"application/javascript\" src=\"/libs/signalr.js\"></script>\r\n<script type=\"appl" +
+"ication/javascript\" src=\"/js/index.js\"></script>\r\n");
 
 
         }

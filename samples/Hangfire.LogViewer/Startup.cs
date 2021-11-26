@@ -26,7 +26,7 @@ namespace Hangfire.LogViewer
         {
             services.AddHangfireServer(x =>
             {
-                x.WorkerCount = 1;
+                x.WorkerCount = 4;
             });
 
             var connectionString = _configuration.GetConnectionString("Hangfire");

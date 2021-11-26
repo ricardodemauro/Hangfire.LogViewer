@@ -26,18 +26,33 @@
         </div>
     </div>
     <div class="col-md-9 col-12">
-        <div class="demo">
-            <ul>
-                <vu-log-item v-for="item in logsList"
-                             v-bind:item="item"
-                             v-bind:key="item.id"></vu-log-item>
-            </ul>
+        <div class="table-responsive">
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Level</th>
+                        <th>Message</th>
+                        <th>Time Ago</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in orderedLogs" :class="classObject">
+                        <td>{{ item.properties.Id }}</td>
+                        <td>{{ item.levelFormat }}</td>
+                        <td>{{ item.renderedMessage }}</td>
+                        <td>{{ item.timeDifferenceFormat }}</td>
+                        <td>{{ item.createdFormat }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
 
-<script src="https://unpkg.com/vue@next"></script>
-<script src="https://unpkg.com/vuex@4.0.2/dist/vuex.global.js"></script>
+<script src="/libs/vue.js"></script>
+<script src="/libs/vuex.js"></script>
 
 <script type="application/javascript" src="/libs/signalr.js"></script>
 <script type="application/javascript" src="/js/index.js"></script>

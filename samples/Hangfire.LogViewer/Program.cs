@@ -33,7 +33,7 @@ namespace Hangfire.LogViewer
                 .CreateBootstrapLogger();
 
             var manager = host.Services.GetRequiredService<IRecurringJobManager>();
-            manager.AddOrUpdate("some-id", Job.FromExpression(() => System.Console.Write("Easy!")), Cron.Minutely());
+            manager.AddOrUpdate("some-id", Job.FromExpression(() => Easy()), "*/20 * * * * *");
 
             var notService = host.Services.GetRequiredService<NotificationService>();
             manager.AddOrUpdate("NotificationService", Job.FromExpression(() => Notify(notService)), Cron.Minutely());
@@ -43,6 +43,11 @@ namespace Hangfire.LogViewer
         public static void Notify(NotificationService service)
         {
             service.Run();
+        }
+
+        public static void Easy()
+        {
+            Log.Information("Hello from Easy");
         }
 
         static IWebHost CreateHost(string[] args) =>

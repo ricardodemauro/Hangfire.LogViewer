@@ -6,7 +6,7 @@ using Hangfire.SignalRViewer.Templater.Pages;
 using System;
 using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleTo("Hangfire.SignalRViewer.Templater")] // The TestPrject will have access to the internal types and members
+[assembly: InternalsVisibleTo("Hangfire.SignalRViewer.Templater")] 
 
 namespace Hangfire.SignalRViewer.DependencyInjection
 {
