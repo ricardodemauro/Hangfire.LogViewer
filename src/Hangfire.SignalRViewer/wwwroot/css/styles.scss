@@ -1,0 +1,103 @@
+﻿@keyframes yellowfade {
+    from {
+        background: yellow;
+    }
+
+    to {
+        background: transparent;
+    }
+}
+
+@keyframes tableFade {
+    from {
+        background-color: #b8daff;
+    }
+
+    to {
+        background-color: transparent;
+    }
+}
+
+ul {
+    list-style: none;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+table.table {
+
+    & > tbody > tr.new > td {
+        animation-name: tableFade;
+        animation-duration: 3.5s;
+    }
+}
+
+a {
+    &.list-group {
+        border-color: #e7e7e7;
+        background-color: #f8f8f8;
+        color: #777;
+        cursor: pointer;
+
+        &.active,
+        &.active:hover,
+        &.active:focus {
+            color: #555;
+            background-color: #e7e7e7;
+            border-color: #e7e7e7;
+        }
+
+        & > smal {
+            font-size: 8pt;
+            border: 1px solid lightblue;
+            border-radius: 7px;
+            padding: 2px;
+            float: right;
+        }
+
+        &.highlight {
+            animation-name: yellowfade;
+            animation-duration: 1.5s;
+        }
+
+        &.list-group-item-primary {
+            color: #004085;
+            background-color: #b8daff;
+        }
+
+        &.list-group-item-secondary {
+            color: #383d41;
+            background-color: #d6d8db;
+        }
+
+        &.list-group-item-success {
+            color: #155724;
+            background-color: #c3e6cb;
+        }
+
+        &.list-group-item-danger {
+            color: #721c24;
+            background-color: #f5c6cb;
+        }
+
+        &.list-group-item-warning {
+            color: #856404;
+            background-color: #ffeeba;
+        }
+
+        &.list-group-item-info {
+            color: #0c5460;
+            background-color: #bee5eb;
+        }
+
+        &.list-group-item-light {
+            color: #818182;
+            background-color: #fdfdfe;
+        }
+
+        &.list-group-item-dark {
+            color: #1b1e21;
+            background-color: #c6c8ca;
+        }
+    }
+}
